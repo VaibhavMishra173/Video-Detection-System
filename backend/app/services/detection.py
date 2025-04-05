@@ -1,14 +1,20 @@
-import torch
+import logging
+from typing import Tuple, List
+
 import cv2
 import numpy as np
-from typing import Tuple, List
+import torch
 from ultralytics import YOLO
+
+# Setup logger
+logger = logging.getLogger(__name__)
 
 # Load model once globally
 model = YOLO("yolov8n.pt")
 
+# Constants
 CONFIDENCE_THRESHOLD = 0.3
-PERSON_CLASS_ID = 0         # COCO: 0 = person
+PERSON_CLASS_ID = 0  # COCO class: 0 = person
 
 def detect_people(frame: np.ndarray) -> Tuple[List[List[float]], List[float]]:
     """
@@ -24,17 +30,18 @@ def detect_people(frame: np.ndarray) -> Tuple[List[List[float]], List[float]]:
     """
     try:
         results = model(frame, verbose=False)
-
         bounding_boxes = []
         confidences = []
 
         for result in results:
             if not hasattr(result, "boxes"):
+                logger.warning("YOLO result missing 'boxes' attribute.")
                 continue
 
             boxes = result.boxes
 
             if boxes is None or boxes.cls is None:
+                logger.warning("Empty boxes or class info in YOLO result.")
                 continue
 
             classes = boxes.cls.cpu().numpy()
@@ -47,8 +54,9 @@ def detect_people(frame: np.ndarray) -> Tuple[List[List[float]], List[float]]:
                     bounding_boxes.append([x1, y1, x2, y2])
                     confidences.append(float(conf))
 
+        logger.debug(f"Detected {len(bounding_boxes)} people in frame")
         return bounding_boxes, confidences
 
     except Exception as e:
-        print(f"[detect_people] Error during detection: {str(e)}")
+        logger.error(f"[detect_people] Error during detection: {e}")
         return [], []

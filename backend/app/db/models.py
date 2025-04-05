@@ -15,7 +15,7 @@ class Video(Base):
     filepath = Column(String, nullable=False)
     data = Column(LargeBinary)
     upload_date = Column(DateTime, default=datetime.utcnow)
-    processed = Column(Integer, default=0)  # 0: Not processed, 1: Processing, 2: Completed
+    processed = Column(Integer, default=0)  # 0: Not processed, 1: Processing, 2: Processed
     
     detections = relationship("Detection", back_populates="video", cascade="all, delete-orphan")
 

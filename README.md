@@ -46,7 +46,7 @@ A web application that processes videos to detect people using YOLOv8, stores de
 
 2. **Start the application using Docker Compose:**
    ```bash
-   docker-compose up --build
+   % docker-compose -f docker/docker-compose.yml up --build
    ```
 
 3. **Access the application:**

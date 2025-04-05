@@ -27,7 +27,7 @@ class VideoSchema(BaseModel):
     id: int
     filename: str
     upload_date: datetime
-    processed: int  # 0: Not processed, 1: Processing, 2: Completed, 3: Error
+    processed: int  # 0: Not processed, 1: Processing, 2: Processed, 3: Error
     class Config:
         orm_mode = True
 
