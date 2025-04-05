@@ -1,0 +1,55 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg
+*.egg-info/
+dist/
+build/
+*.log
+.env
+venv/
+.env.*.backup
+*.sqlite3
+
+# ---- FastAPI specific ----
+*.db
+instance/
+.mypy_cache/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ---- VSCode ----
+.vscode/
+
+# ---- Docker ----
+*.bak
+docker-compose.override.yml
+docker-compose.*.yml
+
+# ---- Node / React ----
+node_modules/
+build/
+dist/
+.cache/
+*.log
+.env.local
+.env.development
+.env.production
+
+# ---- Typescript ----
+*.tsbuildinfo
+
+# ---- OS / Misc ----
+.DS_Store
+Thumbs.db
+.idea/
+*.swp
+*.swo
+
+# ---- Testing ----
+coverage/
+*.cover
+nosetests.xml
+test-results/
+junit.xml
