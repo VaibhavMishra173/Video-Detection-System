@@ -40,7 +40,7 @@ A web application that processes videos to detect people using YOLOv8, stores de
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/video-detection-system.git
+   git clone https://github.com/VaibhavMishra173/video-detection-system.git
    cd video-detection-system
    ```
 
@@ -51,7 +51,7 @@ A web application that processes videos to detect people using YOLOv8, stores de
 
 3. **Access the application:**
    - Frontend: [http://localhost:3000](http://localhost:3000)  
-   - Backend API: [http://localhost:8000/docs](http://localhost:8000/docs)
+   - Backend API: [http://localhost:8000](http://localhost:8000)
 
 ---
 
