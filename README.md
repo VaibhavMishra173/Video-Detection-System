@@ -104,6 +104,8 @@ A web application that processes videos to detect people using YOLOv8, stores de
 - `POST /api/upload`: Upload a video file for processing  
 - `GET /api/videos`: Get a list of all uploaded videos  
 - `GET /api/videos/{video_id}`: Get details of a specific video including detection results  
+- `GET /api/videos/{video_id}/stream`: Stream the raw video file directly for playback in the frontend.
+- `GET /api/ws/{video_id}`: Open a WebSocket connection to receive live updates about the processing progress of a specific video.
 
 ---
 
